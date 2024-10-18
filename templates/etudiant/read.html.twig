@@ -1,0 +1,24 @@
+{{dump(etuds)}}
+<h1>Liste des Etudiants </h1>
+<table border=1>
+<tr>
+<th>id</th>
+<th>nom</th>
+<th>prenom</th>
+<th>Email</th>
+<th>Update</th>
+<th>delete</th>
+</tr>
+
+{%for Etudiant in etuds%}
+<tr>
+   <td>{{Etudiant.id}}</td> 
+   <td>{{Etudiant.nom|upper()}}</td> 
+    <td>{{Etudiant.prenom|upper()}}</td> 
+   <td>{{Etudiant.email}}</td> 
+    <td><a href="{{path('etudiant_update',{'id':Etudiant.id}) }}">update</a></td> 
+    <td><a href="{{path('etudiant_delete',{'id':Etudiant.id}) }}">delete</a></td> 
+    </tr>
+{%endfor%}
+</table>
+<a href="{{path('Etudiant_add')}}">ajouter</a>
